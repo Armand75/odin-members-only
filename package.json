@@ -1,0 +1,27 @@
+{
+  "name": "odin-members-only",
+  "version": "1.0.0",
+  "description": "",
+  "main": "passport.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Armand75/odin-members-only.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Armand75/odin-members-only/issues"
+  },
+  "homepage": "https://github.com/Armand75/odin-members-only#readme",
+  "dependencies": {
+    "connect-pg-simple": "^10.0.0",
+    "connect-session-sequelize": "^8.0.2",
+    "express-session": "^1.18.2",
+    "method-override": "^3.0.0",
+    "pg-hstore": "^2.3.4"
+  }
+}

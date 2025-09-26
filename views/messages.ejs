@@ -1,0 +1,38 @@
+
+<h1>Messages route</h1>
+
+<% if (user) { %>
+    <h2>Hi <%= user.first_name %>!</h2>
+<h1>Create message</h1>
+<form action="/messages" method="POST">
+  <input type="text" name="title" placeholder="Message Title" required />
+  <textarea name="text" placeholder="Your message here..." required></textarea>
+  <button type="submit">Create Message</button>
+</form>
+<% if (!user.membership_status) { %>
+<h2>Join the membership club</h2>
+<form action="/join" method="post">
+    <label for="passcode">Please Enter the passcode</label>
+    <input type="text" id="passcode" name="passcode" required>
+    <button type="submit">Submit</button>
+</form>
+<% } else { %>
+    <h3>You are a club member!!</h3>
+    <% } %>
+<% } %>
+
+<% messages.forEach(message => { %>
+    <div>
+        <h3><%= message.title %></h3>
+        <% if(user && user.membership_status){ %>
+            <p>Author: <%= message.User.first_name %> <%= message.User.last_name %> </p>
+            <p>Date: <%= message.timestamp.toDateString() %></p>
+        <%} %>
+        <p><%= message.text %></p>
+        <% if(user && user.is_admin){ %>
+            <form action="/messages/<%= message.id %>?_method=DELETE" method="POST">
+                <button type="submit" >Delete message</button>
+            </form>
+        <% } %>
+    </div>
+<% }) %>
